@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Dropdown } from "flowbite-react";
 
 export default function IsiDropdown() {
-  const [count, setCount] = useState(null);
+  const [count, setCount] = useState(0);
   const [error, setError] = useState(null);
 
   function SubmitQty(e) {
@@ -45,45 +45,43 @@ export default function IsiDropdown() {
     }
   };
   return (
-    <div>
-        
-      <div>
-        <Dropdown label="Dropdown button" className="bg-white">
-          <Dropdown.Header>
-            <span className="block text-sm">Penumpang</span>
-          </Dropdown.Header>
-          <Dropdown.Divider />
-          <div className="flex justify-between w-44 pl-4 pr-4 pt-3 pb-3">
-            <div> Dewasa</div>
-
-            <div className="">
-              <div className="">
-                <button
-                  style={{
-                    borderRadius: "25px 0px 0px 25px",
-                  }}
-                  onClick={handleMinus}
-                >
-                  -
-                </button>
-                <input
-                  className="w-10 h-10 p-2"
-                  type="text"
-                  min="0"
-                  value={count}
-                  onClick={() => setCount(null)}
-                  onChange={handleValueChange}
-                />
-                <button onClick={handlePlus}>+</button>
-              </div>
-            </div>
-          </div>
-          <Dropdown.Divider />
-
-          <Dropdown.Item>Anak</Dropdown.Item>
-        </Dropdown>
-      </div>
-    </div>
+    <Dropdown
+      label="Dropdown button"
+      className="bg-white"
+      dismissOnClick={false}
+    >
+      <Dropdown.Header className="text-sm font-extrabold">
+        Penumpang
+      </Dropdown.Header>
+      <Dropdown.Item className="flex gap-3 hover:bg-green-200">
+        Dewasa
+        <div className="flex gap-2">
+          <button
+            onClick={() => !(count == 0) && setCount(count - 1)}
+            className="text-2xl font-extrabold"
+          >
+            -
+          </button>
+          <input
+            type="number"
+            min="0"
+            max="8"
+            value={count}
+            onChange={handleValueChange}
+            className="!p-0 px-2 w-10"
+          />
+          <button
+            onClick={() => !(count >= 8) && setCount(count + 1)}
+            className="text-2xl font-extrabold"
+          >
+            +
+          </button>
+        </div>
+      </Dropdown.Item>
+      <Dropdown.Item className="flex gap-3 hover:bg-green-200">
+        Anak
+      </Dropdown.Item>
+    </Dropdown>
   );
 }
 
