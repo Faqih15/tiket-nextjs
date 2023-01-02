@@ -2,6 +2,7 @@ import Select from "react-select";
 import { TbTrain } from "react-icons/tb";
 import { IoCalendarOutline } from "react-icons/io5";
 import { BsBuilding } from "react-icons/bs";
+import IsiDropdown from "./Dropdown/IsiDropdown";
 
 export default function IsiPesan() {
   const stasiun = [
@@ -162,7 +163,9 @@ export default function IsiPesan() {
           </div>
         </section>
         <section className="flex-initial w-50 mx-2">
-          Pergi
+          <div>
+            <label>Pergi</label>
+          </div>
           <div className="">
             <div>
               <IoCalendarOutline />
@@ -181,7 +184,9 @@ export default function IsiPesan() {
           </div>
         </section>
         <section className="">
-          Pulang
+          <div>
+            <label>Pulang</label>
+          </div>
           <div className="">
             <div>
               <IoCalendarOutline />
@@ -198,6 +203,15 @@ export default function IsiPesan() {
               ></input>
             </div>
           </div>
+        </section>
+        <></>
+
+        <section>
+          <div>
+            <label>Penumpang</label>
+          </div>
+
+          <IsiDropdown />
         </section>
       </div>
       <h2>ayam</h2>
