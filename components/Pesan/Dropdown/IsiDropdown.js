@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Dropdown } from "flowbite-react";
+// import { Dropdown } from "flowbite-react";
 
 export default function IsiDropdown() {
-  const [count, setCount] = useState(null);
+  const [jumlahDw, setJumlahDw] = useState(null);
+  const [jumlahAn, setJumlahAn] = useState(null);
   const [error, setError] = useState(null);
 
   function SubmitQty(e) {
@@ -33,6 +34,7 @@ export default function IsiDropdown() {
       setError("Please Enter a Valid Number");
     }
   };
+  
   const handleValueChange = (e) => {
     e.preventDefault();
     const re = /^[0-9\b]+$/;
@@ -46,42 +48,70 @@ export default function IsiDropdown() {
   };
   return (
     <div>
-        
       <div>
-        <Dropdown label="Dropdown button" className="bg-white">
+        {/* <Dropdown
+          inline
+          label="Dropdown button"
+          className="bg-white"
+          dismissOnClick={false}
+        >
           <Dropdown.Header>
-            <span className="block text-sm">Penumpang</span>
+            <span className="text-sm font-extrabold">Penumpang</span>
           </Dropdown.Header>
           <Dropdown.Divider />
-          <div className="flex justify-between w-44 pl-4 pr-4 pt-3 pb-3">
-            <div> Dewasa</div>
-
-            <div className="">
-              <div className="">
-                <button
-                  style={{
-                    borderRadius: "25px 0px 0px 25px",
-                  }}
-                  onClick={handleMinus}
-                >
-                  -
-                </button>
-                <input
-                  className="w-10 h-10 p-2"
-                  type="text"
-                  min="0"
-                  value={count}
-                  onClick={() => setCount(null)}
-                  onChange={handleValueChange}
-                />
-                <button onClick={handlePlus}>+</button>
-              </div>
+          <div className="flex gap-3 hover:bg-green-200">
+            Dewasa
+            <div className="flex gap-2">
+              <button
+                onClick={() => !(jumlahDw == 0) && setJumlahDw(jumlahDw - 1)}
+                className="text-2xl font-extrabold"
+              >
+                -
+              </button>
+              <input
+                type="number"
+                // min="0"
+                // max="8"
+                value={jumlahDw}
+                onChange={handleValueChange}
+                className="!p-0 px-2 w-10"
+              />
+              <button
+                onClick={() => !(jumlahDw >= 8) && setJumlahDw(jumlahDw + 1)}
+                className="text-2xl font-extrabold"
+              >
+                +
+              </button>
             </div>
           </div>
           <Dropdown.Divider />
 
-          <Dropdown.Item>Anak</Dropdown.Item>
-        </Dropdown>
+          <div className="flex gap-3 hover:bg-green-200">
+            Anak
+            <div className="flex gap-2">
+              <button
+                onClick={() => !(jumlahAn >= 8) && setJumlahAn(jumlahAn + 1)}
+                className="text-2xl font-extrabold"
+              >
+                -
+              </button>
+              <input
+                type="number"
+                // min="0"
+                // max="8"
+                value={jumlahAn}
+                onChange={handleValueChange}
+                className="!p-0 px-2 w-10"
+              />
+              <button
+                onClick={() => !(jumlahAn >= 8) && setJumlahDw(jumlahAn + 1)}
+                className="text-2xl font-extrabold"
+              >
+                +
+              </button>
+            </div>
+          </div>
+        </Dropdown> */}
       </div>
     </div>
   );

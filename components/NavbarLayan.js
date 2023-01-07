@@ -18,19 +18,34 @@ export default function NavbarLayan() {
               >
                 Pesawat
               </a>
-              <a href="#" className="mx-4 text-sm hover:text-blue-500">
+              <a
+                href="#"
+                className="mx-4 text-base hover:text-blue-500 no-underline hover:underline hover:underline-offset-8"
+              >
                 Hotel
               </a>
-              <a href="#" className="mx-4 text-sm hover:text-blue-500">
+              <a
+                href="#"
+                className="mx-4 text-base hover:text-blue-500 no-underline hover:underline hover:underline-offset-8"
+              >
                 To Do
               </a>
-              <a href="#" className="mx-4 text-sm hover:text-blue-500">
+              <a
+                href="#"
+                className="mx-4 text-base hover:text-blue-500 no-underline hover:underline hover:underline-offset-8"
+              >
                 Kereta Api
               </a>
-              <a href="#" className="mx-4 text-sm hover:text-blue-500">
+              <a
+                href="#"
+                className="mx-4 text-base hover:text-blue-500 no-underline hover:underline hover:underline-offset-8"
+              >
                 Sewa Mobil
               </a>
-              <a href="#" className="mx-4 text-sm hover:text-blue-500">
+              <a
+                href="#"
+                className="mx-4 text-base hover:text-blue-500 no-underline hover:underline hover:underline-offset-8"
+              >
                 Event
               </a>
             </div>

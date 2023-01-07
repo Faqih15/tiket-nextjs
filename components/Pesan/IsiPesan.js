@@ -123,17 +123,16 @@ export default function IsiPesan() {
   };
   return (
     <div className="">
-      <div className="flex ">
-        <></>
-        <section className="flex-initial w-64 mx-2 border border-orange-500">
+      <div className="border-y grid grid-cols-5 px-10 divide-x">
+        <section className="flex-initial pr-2 pt-3">
           <div>
-            <label>Dari</label>
+            <label className="">Dari</label>
           </div>
-          <div className="d-flex flex-row justify-content-around">
-            <div>
+          <div className="flex">
+            <div className="flex-none">
               <TbTrain />
             </div>
-            <div className="">
+            <div className="grow w-44">
               <Select
                 placeholder="Pilih Kota"
                 options={stasiun} // options bawaan
@@ -144,15 +143,15 @@ export default function IsiPesan() {
           </div>
         </section>
         <></>
-        <section className="flex-initial w-64 mx-2">
+        <section className="flex-initial px-2 py-3">
           <div>
             <label>Ke</label>
           </div>
-          <div className="d-flex flex-row justify-content-around">
-            <div>
+          <div className="flex">
+            <div className="flex-none">
               <TbTrain />
             </div>
-            <div className="">
+            <div className="grow w-44">
               <Select
                 placeholder="Pilih Kota"
                 options={stasiun} // options bawaan
@@ -162,15 +161,15 @@ export default function IsiPesan() {
             </div>
           </div>
         </section>
-        <section className="flex-initial w-50 mx-2">
+        <section className="flex-initial px-2 py-3 mx-2 ">
           <div>
             <label>Pergi</label>
           </div>
-          <div className="">
-            <div>
+          <div className="flex">
+            <div className="flex-none">
               <IoCalendarOutline />
             </div>
-            <div>
+            <div className="grow w-36">
               <input
                 type="date"
                 onfocus="(this.type='date')"
@@ -183,15 +182,15 @@ export default function IsiPesan() {
             </div>
           </div>
         </section>
-        <section className="">
+        <section className="flex-initial px-2 py-3 mx-2">
           <div>
             <label>Pulang</label>
           </div>
-          <div className="">
-            <div>
+          <div className="flex">
+            <div className="flex-none">
               <IoCalendarOutline />
             </div>
-            <div>
+            <div className="grow w-36">
               <input
                 type="date"
                 onfocus="(this.type='date')"
@@ -206,15 +205,15 @@ export default function IsiPesan() {
         </section>
         <></>
 
-        <section>
-          <div>
+        <section className="flex-initial px-2 py-3 mx-3">
+          <div className="">
             <label>Penumpang</label>
           </div>
-
-          <IsiDropdown />
+          <div>
+            <IsiDropdown />
+          </div>
         </section>
       </div>
-      <h2>ayam</h2>
     </div>
   );
 }
