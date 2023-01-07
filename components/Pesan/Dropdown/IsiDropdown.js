@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-// import { Dropdown } from "flowbite-react";
+import { Menu } from '@headlessui/react'
+
 
 export default function IsiDropdown() {
-<<<<<<< HEAD
   const [jumlahDw, setJumlahDw] = useState(null);
   const [jumlahAn, setJumlahAn] = useState(null);
-=======
   const [count, setCount] = useState(0);
->>>>>>> origin/main2
   const [error, setError] = useState(null);
 
   function SubmitQty(e) {
@@ -38,7 +36,7 @@ export default function IsiDropdown() {
       setError("Please Enter a Valid Number");
     }
   };
-  
+
   const handleValueChange = (e) => {
     e.preventDefault();
     const re = /^[0-9\b]+$/;
@@ -50,115 +48,34 @@ export default function IsiDropdown() {
       setError("Your input is not valid");
     }
   };
-  return (
-<<<<<<< HEAD
-    <div>
-      <div>
-        {/* <Dropdown
-          inline
-          label="Dropdown button"
-          className="bg-white"
-          dismissOnClick={false}
+  return <Menu>
+  <Menu.Button>More</Menu.Button>
+  <Menu.Items>
+    <Menu.Item>
+      {({ active }) => (
+        <a
+          className={`${active && 'bg-blue-500'}`}
+          href="/account-settings"
         >
-          <Dropdown.Header>
-            <span className="text-sm font-extrabold">Penumpang</span>
-          </Dropdown.Header>
-          <Dropdown.Divider />
-          <div className="flex gap-3 hover:bg-green-200">
-            Dewasa
-            <div className="flex gap-2">
-              <button
-                onClick={() => !(jumlahDw == 0) && setJumlahDw(jumlahDw - 1)}
-                className="text-2xl font-extrabold"
-              >
-                -
-              </button>
-              <input
-                type="number"
-                // min="0"
-                // max="8"
-                value={jumlahDw}
-                onChange={handleValueChange}
-                className="!p-0 px-2 w-10"
-              />
-              <button
-                onClick={() => !(jumlahDw >= 8) && setJumlahDw(jumlahDw + 1)}
-                className="text-2xl font-extrabold"
-              >
-                +
-              </button>
-            </div>
-          </div>
-          <Dropdown.Divider />
-
-          <div className="flex gap-3 hover:bg-green-200">
-            Anak
-            <div className="flex gap-2">
-              <button
-                onClick={() => !(jumlahAn >= 8) && setJumlahAn(jumlahAn + 1)}
-                className="text-2xl font-extrabold"
-              >
-                -
-              </button>
-              <input
-                type="number"
-                // min="0"
-                // max="8"
-                value={jumlahAn}
-                onChange={handleValueChange}
-                className="!p-0 px-2 w-10"
-              />
-              <button
-                onClick={() => !(jumlahAn >= 8) && setJumlahDw(jumlahAn + 1)}
-                className="text-2xl font-extrabold"
-              >
-                +
-              </button>
-            </div>
-          </div>
-        </Dropdown> */}
-      </div>
-    </div>
-=======
-    <Dropdown
-      label="Dropdown button"
-      className="bg-white"
-      dismissOnClick={false}
-    >
-      <Dropdown.Header className="text-sm font-extrabold">
-        Penumpang
-      </Dropdown.Header>
-      <Dropdown.Item className="flex gap-3 hover:bg-green-200">
-        Dewasa
-        <div className="flex gap-2">
-          <button
-            onClick={() => !(count == 0) && setCount(count - 1)}
-            className="text-2xl font-extrabold"
-          >
-            -
-          </button>
-          <input
-            type="number"
-            min="0"
-            max="8"
-            value={count}
-            onChange={handleValueChange}
-            className="!p-0 px-2 w-10"
-          />
-          <button
-            onClick={() => !(count >= 8) && setCount(count + 1)}
-            className="text-2xl font-extrabold"
-          >
-            +
-          </button>
-        </div>
-      </Dropdown.Item>
-      <Dropdown.Item className="flex gap-3 hover:bg-green-200">
-        Anak
-      </Dropdown.Item>
-    </Dropdown>
->>>>>>> origin/main2
-  );
+          Account settings
+        </a>
+      )}
+    </Menu.Item>
+    <Menu.Item>
+      {({ active }) => (
+        <a
+          className={`${active && 'bg-blue-500'}`}
+          href="/account-settings"
+        >
+          Documentation
+        </a>
+      )}
+    </Menu.Item>
+    <Menu.Item disabled>
+      <span className="opacity-75">Invite a friend (coming soon!)</span>
+    </Menu.Item>
+  </Menu.Items>
+</Menu>;
 }
 
 {
