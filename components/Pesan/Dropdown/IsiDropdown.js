@@ -2,8 +2,12 @@ import React, { useState } from "react";
 // import { Dropdown } from "flowbite-react";
 
 export default function IsiDropdown() {
+<<<<<<< HEAD
   const [jumlahDw, setJumlahDw] = useState(null);
   const [jumlahAn, setJumlahAn] = useState(null);
+=======
+  const [count, setCount] = useState(0);
+>>>>>>> origin/main2
   const [error, setError] = useState(null);
 
   function SubmitQty(e) {
@@ -47,6 +51,7 @@ export default function IsiDropdown() {
     }
   };
   return (
+<<<<<<< HEAD
     <div>
       <div>
         {/* <Dropdown
@@ -114,6 +119,45 @@ export default function IsiDropdown() {
         </Dropdown> */}
       </div>
     </div>
+=======
+    <Dropdown
+      label="Dropdown button"
+      className="bg-white"
+      dismissOnClick={false}
+    >
+      <Dropdown.Header className="text-sm font-extrabold">
+        Penumpang
+      </Dropdown.Header>
+      <Dropdown.Item className="flex gap-3 hover:bg-green-200">
+        Dewasa
+        <div className="flex gap-2">
+          <button
+            onClick={() => !(count == 0) && setCount(count - 1)}
+            className="text-2xl font-extrabold"
+          >
+            -
+          </button>
+          <input
+            type="number"
+            min="0"
+            max="8"
+            value={count}
+            onChange={handleValueChange}
+            className="!p-0 px-2 w-10"
+          />
+          <button
+            onClick={() => !(count >= 8) && setCount(count + 1)}
+            className="text-2xl font-extrabold"
+          >
+            +
+          </button>
+        </div>
+      </Dropdown.Item>
+      <Dropdown.Item className="flex gap-3 hover:bg-green-200">
+        Anak
+      </Dropdown.Item>
+    </Dropdown>
+>>>>>>> origin/main2
   );
 }
 
