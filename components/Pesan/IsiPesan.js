@@ -4,6 +4,7 @@ import { IoCalendarOutline } from "react-icons/io5";
 import { BsBuilding } from "react-icons/bs";
 // import IsiDropdown from "./Dropdown/IsiDropdown";
 import IsiBaru from "./Dropdown/IsiBaru";
+import PopOver from "./Dropdown/IsiPopOver";
 
 export default function IsiPesan() {
   const stasiun = [
@@ -104,7 +105,7 @@ export default function IsiPesan() {
     { value: "solo", kota: "Solo", label: "Solo, Solojebres", kode: "SJB" },
   ];
   const customOption = (props) => {
-    console.log(props);
+    // console.log(props);
 
     const { data, innerProps } = props;
     return (
@@ -213,8 +214,8 @@ export default function IsiPesan() {
           {/* <div>
             <IsiDropdown />
           </div> */}
-          <div >
-            <IsiBaru />
+          <div>
+            <PopOver />
           </div>
         </section>
       </div>

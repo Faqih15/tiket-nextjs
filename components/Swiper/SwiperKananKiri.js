@@ -28,8 +28,8 @@ export default function SwiperKananKiri() {
           navigation={{ clickable: true }}
           pagination={{ clickable: true }}
           // scrollbar={{ draggable: true }}
-          onSlideChange={() => console.log("slide change")}
-          onSwiper={(swiper) => console.log(swiper)}
+          // onSlideChange={() => console.log("slide change")}
+          // onSwiper={(swiper) => console.log(swiper)}
           style={{ height: "325px", width: "650px" }}
         >
           {slider.map((item) => {

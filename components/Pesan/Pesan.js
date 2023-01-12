@@ -1,7 +1,7 @@
 import { IoIosArrowForward, IoMdTrain } from "react-icons/io";
-import HeaderPesan from "./Pesan/HeaderPesan";
-import IsiPesan from "./Pesan/IsiPesan";
-import TombolPesan from "./Pesan/TombolPesan";
+import HeaderPesan from "./HeaderPesan";
+import IsiPesan from "./IsiPesan";
+import TombolPesan from "./TombolPesan";
 
 export default function Pesan(props) {
   return (
