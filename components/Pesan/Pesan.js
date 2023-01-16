@@ -24,9 +24,9 @@ export default function Pesan(props) {
         <div>
           <IsiPesan />
         </div>
-        <div>
+        {/* <div>
           <TombolPesan />
-        </div>
+        </div> */}
       </section>
     </div>
   );

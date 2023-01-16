@@ -19,7 +19,7 @@ export default function SwiperKananKiri() {
   // const navigationNextRef = React.useRef(null)
 
   return (
-    <div className="bg-blue-700">
+    <div className="bg-blue-700 pb-8">
       <section className="pb-16">
         <Swiper
           // modules={[Navigation, Pagination, Scrollbar, A11y]}

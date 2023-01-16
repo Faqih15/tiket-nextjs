@@ -1,16 +1,14 @@
 import Head from "next/head";
-// import { Inter } from "@next/font/google";
 import NavbarLayan from "../components/Navbar/NavbarLayan";
 import NavbarUser from "../components/Navbar/NavbarUser";
 import Pesan from "../components/Pesan/Pesan";
 import SwiperKananKiri from "../components/Swiper/SwiperKananKiri";
 
-// const inter = Inter({ subsets: ["latin"] });
-
 export default function Home() {
   return (
     <>
-      <Head >
+      <Head>
+        <title>Home</title>
         <div>
           <NavbarUser />
         </div>
@@ -19,7 +17,7 @@ export default function Home() {
         </div>
       </Head>
       <div>
-        <section className="pb-8">
+        <section className="">
           <SwiperKananKiri />
         </section>
         <section>

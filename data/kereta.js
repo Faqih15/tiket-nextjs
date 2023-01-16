@@ -1,19 +1,12 @@
-export const data = {
-  code: "SUCCESS",
-  message: "Success",
-  errors: null,
+export const allData = {
+  code: "SUCCESS",  message: "Success", errors: null,
   data: {
     parameter: {
-      departDate: "20230112",
-      returnDate: null,
-      originCode: "Yogyakarta",
-      originType: "CITY",
-      destinationCode: "Surabaya",
-      destinationType: "CITY",
-      tripType: "ONE_WAY",
-      connectionTypes: null,
-      adultCount: 4,
-      infantCount: 0,
+      departDate: "20230112", returnDate: null,
+      originCode: "Yogyakarta", originType: "CITY",
+      destinationCode: "Surabaya", destinationType: "CITY",
+      tripType: "ONE_WAY", connectionTypes: null,
+      adultCount: 4, infantCount: 0,
     },
     departJourneys: {
       journeys: [
@@ -23,10 +16,7 @@ export const data = {
             {
               id: "YK-SGU-2023-01-12-6-EKS-J-546762965",
               scheduleId: "546762965",
-              tripId: "1921400",
-              tripDate: "2023-01-12",
-              trainNumber: "6",
-              trainName: "Argo Wilis",
+              tripId: "1921400", tripDate: "2023-01-12", trainNumber: "6", trainName: "Argo Wilis",
               departureStation: {
                 id: 7,
                 code: "YK",
@@ -95,6 +85,7 @@ export const data = {
           transitTimings: [],
           nextDays: 0,
         },
+        
         {
           id: "YK-SGU-2023-01-12-6-EKS-A-546762182",
           segmentSchedules: [
