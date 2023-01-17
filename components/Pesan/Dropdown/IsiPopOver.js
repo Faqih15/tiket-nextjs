@@ -20,31 +20,22 @@ const customer = [
   },
 ];
 
-export default function PopOver() {
+export default function PopOver(dataObj, setdata) {
   const [countDewasa, setCountDewasa] = useState(0);
   const [countAnak, setCountAnak] = useState(0);
   const [error, setError] = useState(null);
+  console.log(dataObj, "data OBJ");
+  console.log(setdata, "setData");
 
-  const handleDewasa = (e) => {
+  const dewasa = (e) => {
     e.preventDefault();
-    const re = /^[0-9\b]+$/;
-    if (e.target.value === "" || re.test(e.target.value)) {
-      const x = Number(e.target.value);
-      setCount(x);
-      setError("Qty updated");
+    console.log(e, "e.value");
+    if (dataObj.adult > 8) {
+      setdata({ ...dataObj, adult: e.kota });
     } else {
-      setError("Your input is not valid");
-    }
-  };
-  const handleAnak = (e) => {
-    e.preventDefault();
-    const re = /^[0-9\b]+$/;
-    if (e.target.value === "" || re.test(e.target.value)) {
-      const x = Number(e.target.value);
-      setCount(x);
-      setError("Qty updated");
-    } else {
-      setError("Your input is not valid");
+      // setdata({ ...dataObj, adult: e.kota });
+      console.log(dataObj, "ERROR TAMBAH");
+      console.log(dataObj, "data OBJ 222");
     }
   };
 
@@ -105,16 +96,14 @@ export default function PopOver() {
                           type="text"
                           min="0"
                           max="8"
-                          value={countDewasa}
+                          value={dataObj.adult}
                           onClick={() => setCountDewasa(null)}
-                          onChange={handleDewasa}
+                          // onChange={handleDewasa}//
                         />
                         <button
                           // onClick={() => !(count >= 8) && setCount(count + 1)}//
                           // onClick={() => setCount(count >= 8 ? 0 : count + 1)}
-                          onClick={() =>
-                            setCountDewasa(countDewasa ? countDewasa + 1 : 1)
-                          }
+                          onClick={dewasa}
                         >
                           +
                         </button>
@@ -160,7 +149,7 @@ export default function PopOver() {
                           max="8"
                           value={countAnak}
                           onClick={() => setCountAnak(null)}
-                          onChange={handleAnak}
+                          // onChange={handleAnak}
                         />
                         <button
                           // onClick={() => !(count >= 8) && setCount(count + 1)}//

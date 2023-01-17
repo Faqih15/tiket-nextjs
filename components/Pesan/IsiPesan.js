@@ -105,25 +105,38 @@ export default function IsiPesan() {
     { value: "solo", kota: "Solo", label: "Solo, Solobalapan", kode: "SBL" },
     { value: "solo", kota: "Solo", label: "Solo, Solojebres", kode: "SJB" },
   ];
-  const [departureStation, setdepartureStation] = useState({});
-  const [arrivalStation, setarrivalStation] = useState({});
+  // const [departureStation, setdepartureStation] = useState({});
+  // const [arrivalStation, setarrivalStation] = useState({});
   // console.log(departureStation, "cityDEP", arrivalStation, "cityARR");
   //mengganti state data statiun departure dan arrival sudah jadi
-  const [departureDate, setdepartureDate] = useState({});
-  const [arrivalDate, setarrivalDate] = useState({});
+  // const [departureDate, setdepartureDate] = useState({});
+  // const [arrivalDate, setarrivalDate] = useState({});
   // console.log(departureDate, "dateDEP", arrivalDate, "dateARR");
 
-  const router = useRouter();
-  const data = router.query;
-
-  console.log(data);
-
-  // console.log(router, "routerpertama");
-
-  const handleClick = (e) => {
-    e.preventDefault();
-    router.push("./kereta-api/cari");
-    // console.log(router, "router setelah diklik");//
+  // const router = useRouter();
+  // const data = router.query;
+  // console.log(data);
+  // // console.log(router, "routerpertama");
+  // const handleClick = (e) => {
+  //   e.preventDefault();
+  //   router.push("./kereta-api/cari");
+  //   // console.log(router, "router setelah diklik");//
+  // };
+  const [data, setdata] = useState({
+    depStation: "",
+    arrStation: "",
+    depDate: "",
+    arrDate: "",
+    adult: 0,
+    child: 0,
+  });
+  const getdepartureStation = (e) => {
+    setdata({ ...data, depStation: e.kota });
+    // console.log(e.value, "adalah e e e e");
+  };
+  const getarrivalStation = (e) => {
+    setdata({ ...data, arrStation: e.kota });
+    // console.log(data, e.value, "adalah e e e e");
   };
 
   const customOption = (props) => {
@@ -198,7 +211,13 @@ export default function IsiPesan() {
                   IndicatorSeparator: () => null,
                 }} // custom option
                 styles={menuStyle}
-                onChange={setdepartureStation}
+                onChange={getdepartureStation}
+                // value={data.depStation}
+                // onChange={(event) =>
+                //   setdata({
+                //     depStation: event.target.value,
+                //   })
+                // }
               />
             </div>
           </div>
@@ -222,7 +241,7 @@ export default function IsiPesan() {
                   IndicatorSeparator: () => null,
                 }} // custom option
                 styles={menuStyle}
-                onChange={setarrivalStation}
+                onChange={getarrivalStation}
               />
             </div>
           </div>
@@ -239,7 +258,7 @@ export default function IsiPesan() {
             <div className="grow w-36">
               <input
                 type="date"
-                onChange={(e) => setdepartureDate({ depDate: e.target.value })}
+                onChange={(e) => setdata({ ...data, depDate: e.target.value })}
                 placeholder="Date"
                 id="start"
                 name="trip-start"
@@ -260,7 +279,7 @@ export default function IsiPesan() {
             <div className="grow w-36">
               <input
                 type="date"
-                onChange={(e) => setarrivalDate({ arrDate: e.target.value })}
+                onChange={(e) => setdata({ ...data, arrDate: e.target.value })}
                 placeholder="Date"
                 id="start"
                 name="trip-start"
@@ -279,23 +298,18 @@ export default function IsiPesan() {
           {/* <div>
             <IsiDropdown />
           </div> */}
-          <div>
-            <PopOver />
+          <div className="ml-32 stroke-2 justify-center">
+            <PopOver dataObj={data} setdata={setdata}/>
           </div>
         </section>
       </div>
       <div className="px-10 text-right">
         <button className="my-4 px-4 py-2 font-semibold text-blue-600 border rounded-full bg-yellow-300">
           <Link
-            onClick={handleClick}
+            // onClick={handleClick}
             href={{
               pathname: "./kereta-api/cari",
-              query: {
-                departureStation,
-                arrivalStation,
-                departureDate,
-                arrivalDate,
-              }, // the data
+              query: data, // the data
             }}
           >
             CARI KERETA API
