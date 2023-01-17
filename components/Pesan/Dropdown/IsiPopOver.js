@@ -20,7 +20,7 @@ const customer = [
   },
 ];
 
-export default function PopOver(dataObj, setdata) {
+export default function PopOver({dataObj, setdata}) {
   const [countDewasa, setCountDewasa] = useState(0);
   const [countAnak, setCountAnak] = useState(0);
   const [error, setError] = useState(null);
