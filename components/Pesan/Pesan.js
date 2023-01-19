@@ -1,26 +1,32 @@
 import { IoIosArrowForward, IoMdTrain } from "react-icons/io";
-import HeaderPesan from "./HeaderPesan";
 import IsiPesan from "./IsiPesan";
-import TombolPesan from "./TombolPesan";
 
 export default function Pesan(props) {
+  const IoMdTrainStyle = { color: "white" };
+
   return (
     <div>
-      {/* <div className="flex flex-col mx-20 py-5 -mt-24 border border-black rounded-lg bg-white">
-        <div>A</div>
-        <div className="border-y-2 border-black grid grid-cols-5 px-10">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div>
-        <div>C</div>
-      </div> */}
       <section className="flex flex-col mx-20 py-5 -mt-24 border rounded-lg bg-white">
-        <div>
-          <HeaderPesan />
-        </div>
+        <section className="flex justify-between px-10">
+          <div className="flex justify-center">
+            <div className="px-1">
+              <div className="fill-white bg-orange-500 rounded rounded-full text-xl p-2 mb-6 content-start">
+                <IoMdTrain style={IoMdTrainStyle} />
+              </div>
+            </div>
+            <div className=" text-slate-800 font-semibold text-xl	">
+              Cari, Reservasi & Pesan Tiket Kereta Api KAI Online
+            </div>
+          </div>
+          <div className="flex justify-center">
+            <a href="#" className="">
+              Pencarian terakhir
+            </a>
+            <a className="">
+              <IoIosArrowForward />
+            </a>
+          </div>
+        </section>
         <div>
           <IsiPesan />
         </div>

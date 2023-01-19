@@ -16,7 +16,7 @@ function NavbarUser(props) {
               return (
                 <a
                   href="#"
-                  className="mx-2 text-gray-500 hover:text-blue-500 text-xs	"
+                  className="mx-2 text-gray-500 hover:text-blue-500 text-sm	"
                 >
                   {item}
                 </a>

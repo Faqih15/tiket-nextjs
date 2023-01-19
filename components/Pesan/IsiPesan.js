@@ -4,7 +4,7 @@ import { IoCalendarOutline } from "react-icons/io5";
 import { BsBuilding } from "react-icons/bs";
 import PopOver from "./Dropdown/IsiPopOver";
 import { useState } from "react";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 import Link from "next/link";
 
 export default function IsiPesan() {
@@ -130,6 +130,7 @@ export default function IsiPesan() {
     adult: 0,
     child: 0,
   });
+  // console.log(data, "data isipesan baris 113");
   const getdepartureStation = (e) => {
     setdata({ ...data, depStation: e.kota });
     // console.log(e.value, "adalah e e e e");
@@ -190,6 +191,8 @@ export default function IsiPesan() {
       },
     }),
   };
+  const biru = { color: "blue" };
+
   return (
     <div className="">
       <div className="border-y grid grid-cols-5 px-10 divide-x">
@@ -199,7 +202,7 @@ export default function IsiPesan() {
           </div>
           <div className="flex">
             <div className="flex-none content-center">
-              <TbTrain />
+              <TbTrain className="text-blue-600 text-xl align-bottom" />
             </div>
             <div className="grow w-44">
               <Select
@@ -229,7 +232,7 @@ export default function IsiPesan() {
           </div>
           <div className="flex">
             <div className="flex-none">
-              <TbTrain />
+              <TbTrain className=" text-blue-600" />
             </div>
             <div className="grow w-44">
               <Select
@@ -299,7 +302,7 @@ export default function IsiPesan() {
             <IsiDropdown />
           </div> */}
           <div className="ml-32 stroke-2 justify-center">
-            <PopOver dataObj={data} setdata={setdata}/>
+            <PopOver dataObj={data} setdata={setdata} />
           </div>
         </section>
       </div>

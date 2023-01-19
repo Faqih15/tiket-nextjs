@@ -13,29 +13,75 @@ const customer = [
     icon: IconOne,
   },
   {
-    name: "Anak-anak",
-    description: "Di bawah 3 th",
+    name: "Bayi",
+    description: "Di bawah 3",
     href: "##",
     icon: IconOne,
   },
 ];
 
-export default function PopOver(dataObj, setdata) {
-  const [countDewasa, setCountDewasa] = useState(0);
-  const [countAnak, setCountAnak] = useState(0);
-  const [error, setError] = useState(null);
-  console.log(dataObj, "data OBJ");
-  console.log(setdata, "setData");
+export default function PopOver({ dataObj, setdata }) {
+  // const [countDewasa, setCountDewasa] = useState(0);
+  // const [countAnak, setCountAnak] = useState(0);
+  // const [error, setError] = useState(null);
+  // console.log(dataObj, "data OBJ");
+  // console.log(setdata, "setData");
 
-  const dewasa = (e) => {
+  const adultPlus = (e) => {
     e.preventDefault();
-    console.log(e, "e.value");
-    if (dataObj.adult > 8) {
-      setdata({ ...dataObj, adult: e.kota });
+    // console.log(e, "e.value");
+    console.log(dataObj, "dataObj");
+    console.log(dataObj.adult, "dataObj.adult");
+    if (dataObj.adult < 8) {
+      // setdata(dataObj.adult + 1);
+      // setdata([...dataObj, (dataObj.adult + 1)]);
+      setdata((e) => ({
+        ...e,
+        adult: e.adult + 1,
+      }));
+      // console.log(dataObj, "ayam sayur 1");
+      console.log(dataObj.adult, "ayam sayur 2");
     } else {
       // setdata({ ...dataObj, adult: e.kota });
       console.log(dataObj, "ERROR TAMBAH");
-      console.log(dataObj, "data OBJ 222");
+      // console.log(dataObj, "data OBJ 222");
+    }
+  };
+
+  const adultMinus = (e) => {
+    e.preventDefault();
+    if (dataObj.adult > 0) {
+      setdata((e) => ({
+        ...e,
+        adult: e.adult - 1,
+      }));
+      console.log(dataObj.adult, "minus adult berhasil");
+    } else {
+      console.log(dataObj, "ERROR KURANG");
+    }
+  };
+
+  const childPlus = (e) => {
+    e.preventDefault();
+    if (dataObj.child < 8) {
+      setdata((e) => ({
+        ...e,
+        child: e.child + 1,
+      }));
+    } else {
+      // console.log(dataObj, "ERROR TAMBAH");
+    }
+  };
+  const childMinus = (e) => {
+    e.preventDefault();
+    if (dataObj.adult > 0) {
+      setdata((e) => ({
+        ...e,
+        adult: e.adult - 1,
+      }));
+      // console.log(dataObj.adult, "minus adult berhasil");
+    } else {
+      // console.log(dataObj, "ERROR KURANG");
     }
   };
 
@@ -59,51 +105,45 @@ export default function PopOver(dataObj, setdata) {
             leaveFrom="opacity-100 translate-y-0"
             leaveTo="opacity-0 translate-y-1"
           >
-            <Popover.Panel className="absolute left-1/2 z-10 mt-3 w-screen max-w-sm -translate-x-1/2 transform px-4 sm:px-0 ">
-              <section className="overflow-hidden border rounded shadow-lg ">
-                <div className="bg-white p-7 lg:grid-cols-2">
+            <Popover.Panel className="absolute left-1/2 z-10 mt-1 w-64 max-w-sm -translate-x-1/2 transform px-4 sm:px-0 ">
+              <section className="bg-white overflow-hidden border rounded shadow-lg px-5 py-5">
+                <div className="bg-white lg:grid-cols-2">
                   <a
                     key={customer[0].name}
                     href={customer[0].href}
-                    className="-m-3 flex items-centerrounded-lg p-2 transition duration-150 ease-in-out hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
+                    className="flex flex-row justify-between "
                   >
-                    {/* <div className="flex h-10 w-10 shrink-0 items-center justify-center text-white sm:h-12 sm:w-12">
-                      <item.icon aria-hidden="true" />
-                    </div> */}
-                    <div className="ml-4">
-                      <p className="text-sm font-medium text-gray-900">
+                    <div className="">
+                      <p className="text-lg text-gray-800">
                         {customer[0].name}
                       </p>
-                      <p className="text-sm text-gray-500">
+                      <p className="text-md text-gray-500">
                         {customer[0].description}
                       </p>
                     </div>
                     <div className="">
                       <div className="">
                         <button
-                          style={{
-                            borderRadius: "25px 0px 0px 25px",
-                          }}
-                          onClick={() =>
-                            !(countDewasa == 0) &&
-                            setCountDewasa(countDewasa - 1)
-                          }
+                          className=" text-blue-700 text-3xl"
+                          // style={{
+                          //   borderRadius: "25px 0px 0px 25px",
+                          // }}
+                          onClick={adultMinus}
                         >
                           -
                         </button>
                         <input
-                          className="w-10 h-10 p-2"
+                          className="w-10 h-10 justify-center pl-4 text-2xl font-bold"
                           type="text"
                           min="0"
                           max="8"
                           value={dataObj.adult}
-                          onClick={() => setCountDewasa(null)}
-                          // onChange={handleDewasa}//
                         />
                         <button
+                          className=" text-blue-700 text-3xl"
                           // onClick={() => !(count >= 8) && setCount(count + 1)}//
                           // onClick={() => setCount(count >= 8 ? 0 : count + 1)}
-                          onClick={dewasa}
+                          onClick={adultPlus}
                         >
                           +
                         </button>
@@ -112,51 +152,39 @@ export default function PopOver(dataObj, setdata) {
                   </a>
                 </div>
               </section>
-              <section className="overflow-hidden border rounded shadow-lg ">
-                <div className="bg-white p-7 lg:grid-cols-2">
+              <section className="bg-white overflow-hidden border rounded shadow-lg px-5 py-5">
+                <div className="bg-white lg:grid-cols-2">
                   <a
                     key={customer[1].name}
                     href={customer[1].href}
-                    className="-m-3 flex items-centerrounded-lg p-2 transition duration-150 ease-in-out hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
+                    className="flex flex-row justify-between "
                   >
-                    {/* <div className="flex h-10 w-10 shrink-0 items-center justify-center text-white sm:h-12 sm:w-12">
-                      <item.icon aria-hidden="true" />
-                    </div> */}
-                    <div className="ml-4">
-                      <p className="text-sm font-medium text-gray-900">
+                    <div className="">
+                      <p className="text-lg text-gray-800">
                         {customer[1].name}
                       </p>
-                      <p className="text-sm text-gray-500">
+                      <p className="text-md text-gray-500">
                         {customer[1].description}
                       </p>
                     </div>
                     <div className="">
                       <div className="">
                         <button
-                          style={{
-                            borderRadius: "25px 0px 0px 25px",
-                          }}
-                          onClick={() =>
-                            !(countAnak == 0) && setCountAnak(countAnak - 1)
-                          }
+                          className=" text-blue-700 text-3xl"
+                          onClick={childMinus}
                         >
                           -
                         </button>
                         <input
-                          className="w-10 h-10 p-2"
+                          className="w-10 h-10 justify-center pl-4 text-2xl font-bold text-zinc-900"
                           type="text"
                           min="0"
                           max="8"
-                          value={countAnak}
-                          onClick={() => setCountAnak(null)}
-                          // onChange={handleAnak}
+                          value={dataObj.child}
                         />
                         <button
-                          // onClick={() => !(count >= 8) && setCount(count + 1)}//
-                          // onClick={() => setCount(count >= 8 ? 0 : count + 1)}
-                          onClick={() =>
-                            setCountAnak(countAnak ? countAnak + 1 : 1)
-                          }
+                          className=" text-blue-700 text-3xl"
+                          onClick={childPlus}
                         >
                           +
                         </button>
@@ -165,6 +193,16 @@ export default function PopOver(dataObj, setdata) {
                   </a>
                 </div>
               </section>
+              {({ close }) => (
+                <button
+                  onClick={async () => {
+                    await fetch("/accept-terms", { method: "POST" });
+                    close();
+                  }}
+                >
+                  Read and accept
+                </button>
+              )}
             </Popover.Panel>
           </Transition>
         </>
