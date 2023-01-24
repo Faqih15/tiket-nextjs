@@ -50,7 +50,7 @@ export default function PopOver({ dataObj, setdata }) {
 
   const adultMinus = (e) => {
     e.preventDefault();
-    if (dataObj.adult > 0) {
+    if (dataObj.adult > 1) {
       setdata((e) => ({
         ...e,
         adult: e.adult - 1,
@@ -60,7 +60,6 @@ export default function PopOver({ dataObj, setdata }) {
       console.log(dataObj, "ERROR KURANG");
     }
   };
-
   const childPlus = (e) => {
     e.preventDefault();
     if (dataObj.child < 8) {
@@ -69,15 +68,15 @@ export default function PopOver({ dataObj, setdata }) {
         child: e.child + 1,
       }));
     } else {
-      // console.log(dataObj, "ERROR TAMBAH");
+      console.log(dataObj, "ERROR TAMBAH");
     }
   };
   const childMinus = (e) => {
     e.preventDefault();
-    if (dataObj.adult > 0) {
+    if (dataObj.child > 0) {
       setdata((e) => ({
         ...e,
-        adult: e.adult - 1,
+        child: e.child - 1,
       }));
       // console.log(dataObj.adult, "minus adult berhasil");
     } else {
@@ -92,7 +91,7 @@ export default function PopOver({ dataObj, setdata }) {
           <Popover.Button className="text-opacity-90">
             <VscChevronDown
               className="
-                  ml-2 h-5 w-5 justify-items-end text-blue-700 transition duration-150 ease-in-out group-hover:text-opacity-80"
+                  ml-2 h-6 w-6 justify-items-end text-blue-700 transition duration-150 ease-in-out group-hover:text-opacity-80"
               aria-hidden="true"
             />
           </Popover.Button>
@@ -184,6 +183,7 @@ export default function PopOver({ dataObj, setdata }) {
                         />
                         <button
                           className=" text-blue-700 text-3xl"
+                          // onClick={() => !(count >= 8) && setCount(count + 1)}
                           onClick={childPlus}
                         >
                           +

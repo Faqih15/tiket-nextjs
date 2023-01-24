@@ -10,7 +10,7 @@ export default function NavbarLayan() {
               className="flex-none w-48 mr-5 mb-4"
             />
           </div>
-          <div className="flex-auto w-64 ">
+          <div className="flex-auto w-64 mt-2">
             <div className="">
               <a
                 href="#"
@@ -50,7 +50,7 @@ export default function NavbarLayan() {
               </a>
             </div>
           </div>
-          <div className="flex-auto w-32 font-bold text-slate-600">
+          <div className="flex-auto w-32 font-bold text-slate-600 mt-2">
             <a href="#" className="mx-4 text-sm">
               Elite Rewards
             </a>

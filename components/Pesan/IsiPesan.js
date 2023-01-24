@@ -127,7 +127,7 @@ export default function IsiPesan() {
     arrStation: "",
     depDate: "",
     arrDate: "",
-    adult: 0,
+    adult: 1,
     child: 0,
   });
   // console.log(data, "data isipesan baris 113");
@@ -192,17 +192,24 @@ export default function IsiPesan() {
     }),
   };
   const biru = { color: "blue" };
+  const tampilAnak = () => {
+    if (data.child > 0) {
+      {
+        data.child;
+      }
+    }
+  };
 
   return (
     <div className="">
       <div className="border-y grid grid-cols-5 px-10 divide-x">
         <section className="flex-initial pr-2 pt-3">
           <div>
-            <label className="text-inherit">Dari</label>
+            <label className="text-slate-500 font-light">Dari</label>
           </div>
           <div className="flex">
             <div className="flex-none content-center">
-              <TbTrain className="text-blue-600 text-xl align-bottom" />
+              <TbTrain className="text-blue-600 text-2xl mt-2" />
             </div>
             <div className="grow w-44">
               <Select
@@ -228,11 +235,11 @@ export default function IsiPesan() {
         <></>
         <section className="flex-initial px-2 py-3">
           <div>
-            <label>Ke</label>
+            <label className="text-slate-500 font-light">Ke</label>
           </div>
           <div className="flex">
             <div className="flex-none">
-              <TbTrain className=" text-blue-600" />
+              <TbTrain className="text-blue-600 text-2xl mt-2" />
             </div>
             <div className="grow w-44">
               <Select
@@ -252,13 +259,13 @@ export default function IsiPesan() {
 
         <section className="flex-initial px-2 py-3 mx-2 ">
           <div>
-            <label>Pergi</label>
+            <label className="text-slate-500 font-light">Pergi</label>
           </div>
           <div className="flex">
             <div className="flex-none">
-              <IoCalendarOutline />
+              <IoCalendarOutline className="text-blue-600 text-xl mt-2" />
             </div>
-            <div className="grow w-36">
+            <div className="grow w-36 mt-2 ml-2">
               <input
                 type="date"
                 onChange={(e) => setdata({ ...data, depDate: e.target.value })}
@@ -273,13 +280,13 @@ export default function IsiPesan() {
         </section>
         <section className="flex-initial px-2 py-3 mx-2">
           <div>
-            <label>Pulang</label>
+            <label className="text-slate-500 font-light">Pulang</label>
           </div>
           <div className="flex">
             <div className="flex-none">
-              <IoCalendarOutline />
+              <IoCalendarOutline className="text-blue-600 text-xl mt-2" />
             </div>
-            <div className="grow w-36">
+            <div className="grow w-36 mt-2 ml-2">
               <input
                 type="date"
                 onChange={(e) => setdata({ ...data, arrDate: e.target.value })}
@@ -294,13 +301,15 @@ export default function IsiPesan() {
         </section>
         <></>
 
-        <section className="flex-initial px-2 py-3 mx-3">
+        <section className="px-2 py-3 mx-3">
           <div className="">
-            <label>Penumpang</label>
+            <label className="text-slate-500 font-light">Penumpang</label>
           </div>
-          {/* <div>
-            <IsiDropdown />
-          </div> */}
+          <div>
+            <p>
+              {data.adult} Dewasa, {tampilAnak}
+            </p>
+          </div>
           <div className="ml-32 stroke-2 justify-center">
             <PopOver dataObj={data} setdata={setdata} />
           </div>
