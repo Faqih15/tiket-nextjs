@@ -10,7 +10,7 @@ export default function Pesan(props) {
             <div className="px-1">
               <div className="mb-6">
                 <div className="">
-                  <IoMdTrain className="p-1 text-white bg-orange-500 text-2xl rounded rounded-[12px]" />
+                  <IoMdTrain className="p-1 mt-1 mr-2 text-white bg-orange-500 text-2xl rounded rounded-[12px]" />
                 </div>
               </div>
             </div>

@@ -195,8 +195,11 @@ export default function IsiPesan() {
   const tampilAnak = () => {
     if (data.child > 0) {
       {
-        data.child;
+        return data.child;
+        console.log("return 199 jadi");
       }
+    } else {
+      alert("return 202 gagal");
     }
   };
 
@@ -307,7 +310,7 @@ export default function IsiPesan() {
           </div>
           <div>
             <p>
-              {data.adult} Dewasa, {tampilAnak}
+              {data.adult} Dewasa, {tampilAnak} Bayi
             </p>
           </div>
           <div className="ml-32 stroke-2 justify-center">

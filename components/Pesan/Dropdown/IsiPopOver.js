@@ -20,12 +20,21 @@ const customer = [
   },
 ];
 
-export default function PopOver({ dataObj, setdata }) {
+// <<<<<<< HEAD
+// export default function PopOver({ dataObj, setdata }) {
   // const [countDewasa, setCountDewasa] = useState(0);
   // const [countAnak, setCountAnak] = useState(0);
   // const [error, setError] = useState(null);
   // console.log(dataObj, "data OBJ");
   // console.log(setdata, "setData");
+// =======
+export default function PopOver({dataObj, setdata}) {
+  const [countDewasa, setCountDewasa] = useState(0);
+  const [countAnak, setCountAnak] = useState(0);
+  const [error, setError] = useState(null);
+  console.log(dataObj, "data OBJ");
+  console.log(setdata, "setData");
+// >>>>>>> 3a6db72e99a2e1d11b07dfbebe899b784e053f07
 
   const adultPlus = (e) => {
     e.preventDefault();
