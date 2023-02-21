@@ -1,4 +1,5 @@
 import { FiChevronDown } from "react-icons/fi";
+import Image from "next/image";
 
 function NavbarUser(props) {
   const satu = [
@@ -15,6 +16,7 @@ function NavbarUser(props) {
             {satu.map((item, index) => {
               return (
                 <a
+                  key={index}
                   href="#"
                   className="mx-2 text-gray-500 hover:text-blue-500 text-sm	"
                 >
@@ -25,11 +27,12 @@ function NavbarUser(props) {
           </div>
           <div className=" pt-1 basis-1/4 flex flex-row justify-end mr-20">
             <div className="">
-              <img
-                height="20"
-                src="id.png"
+              <Image
+                width={500}
+                height={500}
+                src="/id.png"
                 className="w-6 h-4 border border-slate-500"
-              ></img>
+              ></Image>
             </div>
             <div className="ml-2">
               <FiChevronDown />

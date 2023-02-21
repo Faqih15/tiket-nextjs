@@ -4,6 +4,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import SwiperCore, { Pagination, Navigation, Scrollbar, A11y } from "swiper";
 SwiperCore.use([Pagination, Navigation]);
+import Image from "next/image";
 
 export default function SwiperKananKiri() {
   const slider = [
@@ -32,10 +33,10 @@ export default function SwiperKananKiri() {
           // onSwiper={(swiper) => console.log(swiper)}
           style={{ height: "325px", width: "650px" }}
         >
-          {slider.map((item) => {
+          {slider.map((item, idx) => {
             return (
-              <SwiperSlide>
-                <img src={item} />
+              <SwiperSlide key={idx}>
+                <Image height={500} width={700} src={item} />
               </SwiperSlide>
             );
           })}

@@ -1,12 +1,15 @@
+import Image from "next/image";
+
 export default function NavbarLayan() {
   return (
     <div className="">
       <section className="my-8 ml-20 ">
         <div className="flex justify-between">
           <div className="items-start">
-            <img
-              height="25"
-              src="logo-tiket.png"
+            <Image
+              height={500}
+              width={500}
+              src="/logo-tiket.png"
               className="flex-none w-48 mr-5 mb-4"
             />
           </div>
