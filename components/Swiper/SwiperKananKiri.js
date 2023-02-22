@@ -23,7 +23,7 @@ export default function SwiperKananKiri() {
     <div className="bg-blue-700 pb-8">
       <section className="pb-16">
         <Swiper
-          // modules={[Navigation, Pagination, Scrollbar, A11y]}
+          modules={[Navigation, Pagination, Scrollbar, A11y]}
           spaceBetween={20}
           slidesPerView={1}
           navigation={{ clickable: true }}

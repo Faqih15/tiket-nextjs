@@ -6,7 +6,7 @@ import SwiperKananKiri from "../components/Swiper/SwiperKananKiri";
 import dataKereta from "/dataKereta.json";
 
 export default function Home({ props }) {
-  console.log(dataKereta, "this is props");
+  // console.log(dataKereta, "this is props");
 
   return (
     <>
@@ -18,14 +18,14 @@ export default function Home({ props }) {
         <div>
           <NavbarLayan />
         </div>
-      </Head>
-      <div>
         <section className="">
           <SwiperKananKiri />
         </section>
         <section>
           <Pesan />
         </section>
+      </Head>
+      <div>
         {/* <section className="mx-20 my-20"></section> */}
 
         <div className="mt-96 pt-96 text-red-600 text-8xl font-bold">
